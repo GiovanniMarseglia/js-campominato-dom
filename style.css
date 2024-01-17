@@ -47,7 +47,7 @@ main{
     justify-content: center;
     height: 80vh;
     width: 100%;
-    position: relative;
+    
 }
 
 
@@ -57,7 +57,7 @@ main{
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    
+    position: relative;
 }
 
 .box{
@@ -76,14 +76,14 @@ main{
 .vola{
     position: absolute;
     display: none;
-    font-size: 200px;
-    top: 0;
+    font-size: 150px;
+    top: 250px;
+    user-select: none;
 }
 
 .vola2{
-
-    top: 150px;
-
+    top: 450px;
+    font-size: 80px;
 }
 
 .bomba{

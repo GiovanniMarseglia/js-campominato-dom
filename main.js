@@ -75,7 +75,12 @@ for(i=0;i<16;i++){
 
                 return document.getElementsByClassName("vola2")[0].innerHTML = `il tuo punteggio è di : ${punteggio}`
             }else if(listaSelezione.length-1 == maxbox-16){
-                alert("hai vinto")
+
+                document.getElementsByClassName("vola")[0].style.display = "block"
+                document.getElementsByClassName("vola")[1].style.display = "block"
+                document.getElementsByClassName("vola")[0].innerHTML = `HAI VINTO`
+                return document.getElementsByClassName("vola")[1].innerHTML = `il tuo punteggio è di : ${punteggio}`
+                
             }else{
                 listaSelezione[i]= i
                 punteggio++

@@ -14,7 +14,7 @@ bottone.addEventListener("click", function(){
     griglia.style.pointerEvents = "auto"
     document.getElementsByClassName("vola")[0].style.display = "none"
     document.getElementsByClassName("vola")[1].style.display = "none"
-    
+    const bombe=16
     let punteggio=0
     
 
@@ -32,8 +32,8 @@ bottone.addEventListener("click", function(){
 
 
 
-for(i=0;i<16;i++){
-    let random = Math.floor(Math.random()*((maxbox+1)-1)+1)
+for(i=0;i<bombe;i++){
+    let random = Math.floor(Math.random()*(maxbox+1))
     
     if(listaBombe.includes(random)){
     i--
@@ -47,9 +47,9 @@ for(i=0;i<16;i++){
     
     // controllo difficolta
 
-
-    for(let i=1;i<=maxbox;i++){
-        let listaSelezione = []
+    let listaSelezione = []
+    for(let i=1;i <= maxbox;i++){
+        
         const newdiv = document.createElement("div");  
 
         newdiv.classList.add("box")
@@ -67,26 +67,37 @@ for(i=0;i<16;i++){
         // aggiunta classe quando la casella cliccata
         
         newdiv.addEventListener("click",function(){
-            if((listaBombe.includes(i))&&(listaSelezione.length!=maxbox-16)){
+            if((listaBombe.includes(i))&&(listaSelezione.length!=maxbox-1)){
                 this.classList.add("bomba")
                 griglia.style.pointerEvents = "none"
                 document.getElementsByClassName("vola")[0].style.display = "block"
                 document.getElementsByClassName("vola")[1].style.display = "block"
 
                 return document.getElementsByClassName("vola2")[0].innerHTML = `il tuo punteggio è di : ${punteggio}`
-            }else if(listaSelezione.length-1 == maxbox-16){
+            }else if((listaSelezione.length) == (maxbox-(bombe+1))){
 
+                
                 document.getElementsByClassName("vola")[0].style.display = "block"
                 document.getElementsByClassName("vola")[1].style.display = "block"
+                this.classList.toggle("colore")
                 document.getElementsByClassName("vola")[0].innerHTML = `HAI VINTO`
+                punteggio++
                 return document.getElementsByClassName("vola")[1].innerHTML = `il tuo punteggio è di : ${punteggio}`
                 
             }else{
-                listaSelezione[i]= i
+                console.log(`numero maxbox${maxbox-2}`)
+                
+                listaSelezione[punteggio] = i
+                
+                
+                console.log(`numero lunghezza${listaSelezione.length}`)
                 punteggio++
+                
+                
             }
 
-            this.classList.toggle("colore", console.log(i))
+            this.classList.toggle("colore")
+            console.log(i)
             this.style.pointerEvents="none"
 
         })

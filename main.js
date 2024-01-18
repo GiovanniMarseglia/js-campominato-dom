@@ -50,7 +50,8 @@ for(i=0;i<bombe;i++){
     let listaSelezione = []
     for(let i=1;i <= maxbox;i++){
         
-        const newdiv = document.createElement("div");  
+        const newdiv = document.createElement("div"); 
+        
 
         newdiv.classList.add("box")
         if(modeHTML=="easy"){
@@ -99,11 +100,13 @@ for(i=0;i<bombe;i++){
             this.classList.toggle("colore")
             console.log(i)
             this.style.pointerEvents="none"
+            
 
         })
 
         const newContent = document.createTextNode(`${i}`) 
         newdiv.appendChild(newContent)
+        newdiv.style.userSelect="none"
         griglia.appendChild(newdiv) 
         
     }
